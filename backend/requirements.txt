@@ -1,0 +1,5 @@
+fastapi[standard]
+sqlmodel
+psycopg[binary]
+python-dotenv
+boto3
