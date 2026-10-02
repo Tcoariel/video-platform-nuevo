@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const API = "http://127.0.0.1:8000";
+const API = "http://18.119.106.135:8000";
 
 function App() {
   const [page, setPage] = useState("login");
