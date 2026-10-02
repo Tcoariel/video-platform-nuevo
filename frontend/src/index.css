@@ -1,126 +1,319 @@
 * {
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
 }
 
 body {
   margin: 0;
-  background: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f9f9f9;
+  color: #181818;
 }
 
+/* HEADER */
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 30px;
+  height: 64px;
+  background: white;
   border-bottom: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 35px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 header h1 {
+  color: #ff0000;
+  font-size: 26px;
+  margin: 0;
   cursor: pointer;
+  font-weight: 800;
+}
+
+nav {
+  display: flex;
+  gap: 10px;
 }
 
 button {
-  padding: 8px 14px;
-  margin: 5px;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 18px;
+  background: #eeeeee;
   cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s;
 }
 
-main {
-  padding: 25px;
+button:hover {
+  background: #dcdcdc;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+nav button:last-child {
+  background: #ff0000;
+  color: white;
 }
 
-.card {
-  cursor: pointer;
+nav button:last-child:hover {
+  background: #cc0000;
 }
 
-.card img {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-.card p {
-  margin: 4px 0;
-  color: #666;
-}
-
+/* LOGIN */
 .login {
-  width: 350px;
+  width: 380px;
   margin: 100px auto;
+  padding: 35px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   text-align: center;
+}
+
+.login h1 {
+  color: #ff0000;
+  font-size: 38px;
+  margin-bottom: 10px;
+}
+
+.login h2 {
+  margin-bottom: 25px;
 }
 
 .login form {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 }
 
-input,
-textarea {
-  padding: 10px;
-  margin: 5px;
+.login input,
+.login textarea,
+main input,
+main textarea {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
 }
 
-textarea {
-  min-height: 100px;
+.login form button,
+main form button {
+  background: #ff0000;
+  color: white;
 }
 
-.player {
-  width: 70%;
-  background: black;
-  max-height: 600px;
+.login form button:hover,
+main form button:hover {
+  background: #cc0000;
 }
 
-.comment {
-  border-bottom: 1px solid #ddd;
-  padding: 10px 0;
+.login > button {
+  margin-top: 15px;
+  background: transparent;
+  color: #065fd4;
 }
 
-.recommended {
-  display: flex;
-  gap: 15px;
-  flex-wrap: wrap;
+/* CONTENIDO */
+main {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 0 25px;
 }
 
-.recommended div {
-  width: 220px;
+main h2 {
+  margin-bottom: 25px;
+}
+
+/* VIDEOS */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
   cursor: pointer;
+  transition: 0.2s;
+  padding-bottom: 12px;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.12);
+}
+
+.card img {
+  width: 100%;
+  height: 155px;
+  object-fit: cover;
+  display: block;
+}
+
+.card h3,
+.card p {
+  margin: 8px 14px;
+}
+
+.card h3 {
+  font-size: 17px;
+}
+
+.card p {
+  color: #666;
+  font-size: 14px;
+}
+
+/* VIDEO */
+.player {
+  width: 100%;
+  max-height: 600px;
+  background: black;
+  border-radius: 10px;
+  display: block;
+  margin-bottom: 20px;
+}
+
+main > p {
+  color: #555;
+}
+
+/* COMENTARIOS */
+.comment {
+  background: white;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin: 10px 0;
+  border: 1px solid #eee;
+}
+
+.comment b {
+  font-size: 14px;
+}
+
+.comment p {
+  margin-bottom: 0;
+  color: #444;
+}
+
+/* RECOMENDADOS */
+.recommended {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 18px;
+  margin-top: 15px;
+}
+
+.recommended > div {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.recommended > div:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .recommended img {
   width: 100%;
-  aspect-ratio: 16 / 9;
+  height: 125px;
   object-fit: cover;
+}
+
+.recommended p {
+  padding: 0 12px;
+  font-weight: 600;
+}
+
+/* PERFIL */
+main form {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+main textarea {
+  min-height: 100px;
+  resize: vertical;
 }
 
 .my-video {
   display: flex;
-  gap: 15px;
-  margin: 15px 0;
+  gap: 20px;
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 15px;
   align-items: center;
 }
 
 .my-video img {
-  width: 200px;
-  aspect-ratio: 16 / 9;
+  width: 180px;
+  height: 105px;
   object-fit: cover;
+  border-radius: 8px;
 }
 
-@media (max-width: 900px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
+.my-video h3 {
+  margin-top: 0;
+}
+
+.my-video button {
+  margin-right: 8px;
+}
+
+.my-video button:first-of-type {
+  background: #eeeeee;
+}
+
+.my-video button:nth-of-type(2) {
+  background: #ffd600;
+}
+
+.my-video button:last-of-type {
+  background: #ff0000;
+  color: white;
+}
+
+/* MÓVIL */
+@media (max-width: 600px) {
+  header {
+    padding: 0 15px;
   }
 
-  .player {
+  header h1 {
+    font-size: 22px;
+  }
+
+  nav button {
+    padding: 8px 10px;
+  }
+
+  main {
+    padding: 0 15px;
+  }
+
+  .login {
+    width: calc(100% - 30px);
+    margin: 50px auto;
+  }
+
+  .my-video {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .my-video img {
     width: 100%;
+    height: auto;
   }
 }
